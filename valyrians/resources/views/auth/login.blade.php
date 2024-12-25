@@ -1,48 +1,49 @@
 <x-guest-layout>
-    <x-authentication-card>
-        <x-slot name="logo">
-            <x-authentication-card-logo />
-        </x-slot>
+    <div class="flex items-center justify-center min-h-screen bg-cover bg-center relative" style="background-image: url('{{ asset('Images/userlogin.jpg')}}');">
+        <div class="absolute inset-0 bg-black opacity-50"></div> <!-- Shadow overlay -->
+        <div class="bg-[#fef5e7] px-8 py-10 rounded-lg shadow-md w-full max-w-sm relative z-10">
+            <h1 class="text-center text-2xl font-bold mb-2">Welcome Back!</h1>
+            <p class="text-center text-gray-700 mb-6">Log in to your Account</p>
 
-        <x-validation-errors class="mb-4" />
+            <x-validation-errors class="mb-4" />
 
-        @session('status')
-            <div class="mb-4 font-medium text-sm text-green-600">
-                {{ $value }}
-            </div>
-        @endsession
+            @if (session('status'))
+                <div class="mb-4 font-medium text-sm text-green-600">
+                    {{ session('status') }}
+                </div>
+            @endif
 
-        <form method="POST" action="{{ route('login') }}">
-            @csrf
+            <form method="POST" action="{{ route('login') }}">
+                @csrf
 
-            <div>
-                <x-label for="email" value="{{ __('Email') }}" />
-                <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" />
-            </div>
+                <div class="mb-4">
+                    <x-label for="email" value="Email" />
+                    <x-input id="email" class="block mt-1 w-full border-gray-300 rounded-md" type="email" name="email" :value="old('email')" required autofocus />
+                </div>
 
-            <div class="mt-4">
-                <x-label for="password" value="{{ __('Password') }}" />
-                <x-input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="current-password" />
-            </div>
+                <div class="mb-4">
+                    <x-label for="password" value="Password" />
+                    <x-input id="password" class="block mt-1 w-full border-gray-300 rounded-md" type="password" name="password" required />
+                </div>
 
-            <div class="block mt-4">
-                <label for="remember_me" class="flex items-center">
-                    <x-checkbox id="remember_me" name="remember" />
-                    <span class="ms-2 text-sm text-gray-600">{{ __('Remember me') }}</span>
-                </label>
-            </div>
+                <div class="flex items-center justify-between">
+                    <label for="remember_me" class="flex items-center text-sm text-gray-600">
+                        <x-checkbox id="remember_me" name="remember" />
+                        <span class="ml-2">Remember me</span>
+                    </label>
+                </div>
 
-            <div class="flex items-center justify-end mt-4">
-                @if (Route::has('password.request'))
-                    <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('password.request') }}">
-                        {{ __('Forgot your password?') }}
-                    </a>
-                @endif
+                <div class="mt-6">
+                    <button type="submit" class="w-full bg-black text-white py-2 rounded-md hover:bg-gray-800 transition">
+                        Login
+                    </button>
+                </div>
+            </form>
 
-                <x-button class="ms-4">
-                    {{ __('Log in') }}
-                </x-button>
-            </div>
-        </form>
-    </x-authentication-card>
+            <p class="text-center text-sm mt-6 text-gray-700">
+                Don’t have an Account? 
+                <a href="{{ route('register') }}" class="text-blue-500 hover:underline">Sign Up</a>
+            </p>
+        </div>
+    </div>
 </x-guest-layout>

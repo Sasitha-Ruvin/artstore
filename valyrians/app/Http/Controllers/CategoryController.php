@@ -15,9 +15,20 @@ class CategoryController extends Controller
     {
         $categories = Category::all();
         return CategoryResource::collection($categories);
-        //
+        // return view('categories.index', compact('categories'));
     }
 
+    public function getCategoriesForView()
+    {
+        $categories = Category::all();
+        return view('categories.index', compact('categories'));
+    }
+
+
+    public function create()
+    {
+        return view('categories.create');
+    }
     /**
      * Store a newly created resource in storage.
      */
@@ -27,6 +38,7 @@ class CategoryController extends Controller
             'name'=>'required|string|max:255',
         ]);
         $category = Category::create($request->all());
+        return redirect()->route('categories.index')->with('success', 'Category added successfully.');
         return new CategoryResource($category);
         //
     }
@@ -63,7 +75,7 @@ class CategoryController extends Controller
     public function destroy(string $id)
     {
         //
-        $category = Category::finOrFail($id);
+        $category = Category::findOrFail($id);
         $category->delete();
 
         return \response()->json(null,204);
