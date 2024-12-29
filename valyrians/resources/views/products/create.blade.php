@@ -46,7 +46,7 @@
         const response = await fetch('/api/categories');
         if (response.ok) {
             const data = await response.json();
-            const categories = Array.isArray(data.data) ? data.data : data; // Handle both raw array and API resource collection
+            const categories = Array.isArray(data.data) ? data.data : data; 
             
             categories.forEach(category => {
                 const option = document.createElement('option');

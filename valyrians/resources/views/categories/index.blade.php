@@ -9,23 +9,7 @@
 <body class="bg-gray-50">
     <div class="container mx-auto p-8 flex">
         <!-- Left Sidebar -->
-        <div class="w-64 mr-8">
-            <div class="bg-white p-4 rounded mb-4 shadow">
-                Products Management
-            </div>
-            <div class="bg-white p-4 rounded mb-4 shadow">
-                Users Management
-            </div>
-            <div class="bg-white p-4 rounded mb-4 shadow">
-                Order Management
-            </div>
-            <div class="bg-white p-4 rounded mb-4 shadow">
-                Commissions
-            </div>
-            <div class="bg-white p-4 rounded shadow">
-                Category Management
-            </div>
-        </div>
+        <x-sidebar />
 
         <!-- Main Content -->
         <div class="flex-1">

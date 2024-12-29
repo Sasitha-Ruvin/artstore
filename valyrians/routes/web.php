@@ -3,6 +3,10 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\FeaturedProductController;
+
+Route::get('/featured-products', [FeaturedProductController::class, 'create'])->name('featured.create');
+Route::post('/featured-products', [FeaturedProductController::class, 'store'])->name('featured.store');
 
 Route::get('/', function () {
     return view('welcome');

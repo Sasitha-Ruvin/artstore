@@ -9,26 +9,11 @@
 <body class="bg-gray-50">
     <div class="container mx-auto p-8 flex">
         <!-- Left Sidebar -->
-        <div class="w-64 mr-8">
-            <div class="bg-white p-4 rounded mb-4 shadow">
-                Products Management
-            </div>
-            <div class="bg-white p-4 rounded mb-4 shadow">
-                Users Management
-            </div>
-            <div class="bg-white p-4 rounded mb-4 shadow">
-                Order Management
-            </div>
-            <div class="bg-white p-4 rounded mb-4 shadow">
-                Commissions
-            </div>
-            <div class="bg-white p-4 rounded shadow">
-                Category Management
-            </div>
-        </div>
+        <x-sidebar/>
 
         <!-- Main Content -->
         <div class="flex-1">
+            <h1 class="text-center text-2xl justify-center mb-5">Product Management</h1>
             <div class="flex justify-end mb-6">
                 <a href="{{ route('products.create') }}" class="bg-indigo-600 text-white px-4 py-2 rounded">
                     Add Product
