@@ -36,7 +36,7 @@
 <div id="productModal" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 hidden">
     <div class="bg-white rounded-lg shadow-lg overflow-hidden w-11/12 md:w-3/4 lg:w-1/2">
         <div class="relative">
-            <img id="modalProductImage" src="" alt="Product Image" class="w-full h-64 object-cover">
+            <img id="modalProductImage" src="" alt="Product Image" class="w-full h-96 object-cover">
             <button onclick="closeProductModal()" class="absolute top-2 right-2 text-white bg-gray-800 rounded-full p-1 hover:bg-gray-700">
                 &times;
             </button>
