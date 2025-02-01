@@ -7,11 +7,10 @@ use App\Http\Controllers\ProductViewController;
 use App\Http\Controllers\FeaturedProductController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Auth\AdminLoginController;
-
+use App\Http\Controllers\CartController;
 
 Route::post('/featured-products', [FeaturedProductController::class, 'store'])->name('featured-products.store');
 Route::get('/featured-products', [FeaturedProductController::class, 'index'])->name('featured-products.index');
-
 
 // Admin Dashboard
 Route::middleware('auth')->group(function(){
@@ -19,7 +18,8 @@ Route::middleware('auth')->group(function(){
     Route::get('/categories', [CategoryController::class, 'getCategoriesForView'])->name('categories.index');
     Route::get('/categories/create', [CategoryController::class, 'create'])->name('categories.create');
     Route::get('/featured-products/create', [FeaturedProductController::class, 'create'])->name('featured-products.create');
-Route::delete('/featured-products/{id}', [FeaturedProductController::class, 'destroy'])->name('featured-products.destroy');
+    Route::delete('/featured-products/{id}', [FeaturedProductController::class, 'destroy'])->name('featured-products.destroy');
+    Route::get('/cart/view', [CartController::class, 'view'])->name('cart.view');
 });
 
 // Admin Login Route

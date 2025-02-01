@@ -7,23 +7,23 @@
    <script src="https://cdn.tailwindcss.com"></script>
    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
-<body class="bg-orange-50 min-h-screen">
-   <div class="container mx-auto p-8 flex">
-       <!-- Left Sidebar -->
-       <x-sidebar/>
-       </div>
+<body class="bg-gray-50">
+    <div class="container mx-auto p-8 flex">
+        <!-- Left Sidebar (Fixed Width) -->
+            <x-sidebar />
 
-       <!-- Main Content -->
-       <div class="flex-1">
-           <h1 class="text-lg font-semibold mb-8">Name</h1>
-           <div class="flex items-center">
-               <input id="name" type="text" class="w-full max-w-lg bg-gray-200 border border-gray-300 rounded-full p-3 focus:outline-none focus:ring-2 focus:ring-indigo-500">
-               <button class="bg-purple-600 text-white px-6 py-2 rounded-full ml-4" id="save-button">
-                   Save
-               </button>
-           </div>
-       </div>
-   </div>
+ 
+        <!-- Main Content (Takes Remaining Space) -->
+        <div class="flex-1 p-8">
+            <h1 class="text-lg font-semibold mb-4">Category Name</h1>
+            <div class="flex items-center">
+                <input id="name" type="text" class="w-full max-w-lg bg-gray-200 border border-gray-300 rounded-full p-3 focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                <button class="bg-purple-600 text-white px-6 py-2 rounded-full ml-4" id="save-button">
+                    Save
+                </button>
+            </div>
+        </div>
+    </div>
 
    <script>
        document.getElementById('save-button').addEventListener('click', async function() {

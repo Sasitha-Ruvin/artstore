@@ -17,32 +17,42 @@ class CartController extends Controller
         $carts = Cart::with('cartItems.product')->get();
         return CartResource::collection($carts);
     }
-
-    public function addToCart(Request $request)
-{
-    $request->validate([
-        'product_id' => 'required|exists:products,id',
-    ]);
-
-    $user = auth()->user();
-
-    // Find or create the cart for the user
-    $cart = Cart::firstOrCreate(['user_id' => $user->id]);
-
-    // Check if the product is already in the cart
-    $cartItem = $cart->cartItems()->where('product_id', $request->product_id)->first();
-
-    if ($cartItem) {
-        return response()->json(['message' => 'Product already in cart'], 409);
+    public function view()
+    {
+        $user = auth()->user();
+        // Retrieve the cart with its items and the related products for the authenticated user
+        $cart = Cart::with('cartItems.product')->where('user_id', $user->id)->first();
+        
+        return view('cart', compact('cart'));
     }
 
-    // Add item to cart
-    $cart->cartItems()->create([
-        'product_id' => $request->product_id,
-    ]);
+  
 
-    return response()->json(['message' => 'Product added to cart successfully'], 201);
-}
+    public function addToCart(Request $request)
+    {
+        $request->validate([
+            'product_id' => 'required|exists:products,id',
+        ]);
+
+        $user = auth()->user();
+
+        // Find or create the cart for the user
+        $cart = Cart::firstOrCreate(['user_id' => $user->id]);
+
+        // Check if the product is already in the cart
+        $cartItem = $cart->cartItems()->where('product_id', $request->product_id)->first();
+
+        if ($cartItem) {
+            return response()->json(['message' => 'Product already in cart'], 409);
+        }
+
+        // Add item to cart
+        $cart->cartItems()->create([
+            'product_id' => $request->product_id,
+        ]);
+
+        return response()->json(['message' => 'Product added to cart successfully'], 201);
+    }
 
 
     
