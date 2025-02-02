@@ -31,7 +31,7 @@
                 <!-- Navigation Links -->
                 <div class="hidden md:flex space-x-8">
                     <a href="{{('/')}}" class="text-black hover:text-gray-700">Home</a>
-                    <a href="#" class="text-black hover:text-gray-700">About</a>
+                    <a href="{{ route('about') }}" class="text-black hover:text-gray-700">About</a>
                     <a href="#" class="text-black hover:text-gray-700">Contact</a>
                     <a href="{{url('/arts')}}" class="text-black hover:text-gray-700">Products</a>
                     <a href="{{ route('commission.form') }}" class="text-black hover:text-gray-700">Commission</a>

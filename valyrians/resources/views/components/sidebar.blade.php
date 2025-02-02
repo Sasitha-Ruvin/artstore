@@ -11,7 +11,7 @@
     <a href="{{ route('categories.index') }}"  class="block bg-white p-4 rounded mb-4 shadow hover:bg-gray-100">
         Category Management
      </a>
-    <a href="#" class="block bg-white p-4 rounded mb-4 shadow hover:bg-gray-100">
+    <a href="{{ route('commissions.index') }}" class="block bg-white p-4 rounded mb-4 shadow hover:bg-gray-100">
         Commissions
     </a>
     <a href="#" onclick="logoutUser()" class="block bg-red-400 text-white p-4 rounded shadow hover:bg-red-500">
