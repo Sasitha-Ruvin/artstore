@@ -34,7 +34,7 @@
                     <a href="#" class="text-black hover:text-gray-700">About</a>
                     <a href="#" class="text-black hover:text-gray-700">Contact</a>
                     <a href="{{url('/arts')}}" class="text-black hover:text-gray-700">Products</a>
-                    <a href="#" class="text-black hover:text-gray-700">Commission</a>
+                    <a href="{{ route('commission.form') }}" class="text-black hover:text-gray-700">Commission</a>
                     <a href="{{url('wish/wish')}}"class="text-black hover:text-gray-700" >Wishlist</a>
                     <a href="{{ route('cart.view') }}" class="text-black hover:text-gray-700">Cart</a>
                     

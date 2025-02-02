@@ -8,9 +8,13 @@ use App\Http\Controllers\FeaturedProductController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Auth\AdminLoginController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\CommissionController;
 
 Route::post('/featured-products', [FeaturedProductController::class, 'store'])->name('featured-products.store');
 Route::get('/featured-products', [FeaturedProductController::class, 'index'])->name('featured-products.index');
+
+Route::get('/commission', [CommissionController::class, 'showForm'])->name('commission.form');
+Route::post('/commission', [CommissionController::class, 'submitForm'])->name('commission.submit');
 
 // Admin Dashboard
 Route::middleware('auth')->group(function(){
